@@ -14,6 +14,9 @@ const Table = () => {
     GetData(dispatch);
   }, []);
 
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedContribution, setSelectedContribution] = useState(null);
+
   const renderTable = () => {
     const today = new Date();
     const daysInWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
@@ -22,6 +25,11 @@ const Table = () => {
 
     const tableRows = [];
     const currentDate = startDate;
+
+    const handleCellClick = (dateString, contribution) => {
+      setSelectedDate(dateString);
+      setSelectedContribution(contribution);
+    };
 
     for (let i = 0; i < 7; i++) {
       const weekData = [];
@@ -48,7 +56,14 @@ const Table = () => {
           contributionLevel = <div className="square level-4"></div>;
         }
 
-        weekData.push(<td key={dateString}>{contributionLevel}</td>);
+        weekData.push(
+          <td
+            key={dateString}
+            onClick={() => handleCellClick(dateString, contribution)}
+          >
+            {contributionLevel}
+          </td>
+        );
       }
       tableRows.push(<tr key={i}>{weekData}</tr>);
     }
@@ -62,23 +77,27 @@ const Table = () => {
         <table>
           <thead>
             <tr>
-              <th colSpan="2"></th>
+              <th colSpan="4"></th>
               <td colSpan="4">Авг.</td>
               <td colSpan="4">Сен.</td>
               <td colSpan="4">Окт.</td>
-              <td colSpan="4">Нов.</td>
+              <td colSpan="4">Ноя.</td>
               <td colSpan="4">Дек.</td>
               <td colSpan="4">Янв.</td>
               <td colSpan="4">Фев.</td>
-              <td colSpan="4">Март</td>
+              <td colSpan="4">Мар.</td>
               <td colSpan="4">Апр.</td>
               <td colSpan="4">Май</td>
-              <td colSpan="4">Июnь</td>
+              <td colSpan="4">Июнь</td>
               <td colSpan="4">Июль</td>
             </tr>
           </thead>
           <tbody>{renderTable()}</tbody>
         </table>
+      </div>
+      <div className="DateContibution">
+        <div>{selectedContribution}:contribution</div>
+        <div>{selectedDate}</div>
       </div>
     </div>
   );
