@@ -1,12 +1,14 @@
 * {
-  /* font-family: 'Montserrat', sans-serif; */
   font-family: "Roboto", sans-serif;
+  color: rgba(0, 0, 0, 0.492);
 }
 .container {
   display: flex;
+
   align-items: center;
   justify-content: center;
-  background-color: gray;
+  background-color: rgba(128, 128, 128, 0.253);
+  height: 100vh;
 }
 .frame {
   width: 1200px;
@@ -16,6 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .square {
@@ -64,10 +67,26 @@
   top: 80%;
   width: 200px;
   height: 60px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.659);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+}
+.TextContibution {
+  color: white;
+}
+.ContributionContainer {
+  width: 100%;
+}
+.ContributionLevelLine {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 60px;
+  gap: 5px;
+}
+.ContributionLevelLine h5 {
+  font-weight: 400;
 }

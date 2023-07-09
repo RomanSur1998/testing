@@ -16,6 +16,7 @@ const Table = () => {
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedContribution, setSelectedContribution] = useState(null);
+  const [showDateContribution, setShowDateContribution] = useState(false);
 
   const renderTable = () => {
     const today = new Date();
@@ -29,6 +30,7 @@ const Table = () => {
     const handleCellClick = (dateString, contribution) => {
       setSelectedDate(dateString);
       setSelectedContribution(contribution);
+      setShowDateContribution(true);
     };
 
     for (let i = 0; i < 7; i++) {
@@ -37,7 +39,7 @@ const Table = () => {
         currentDate.getTime() + i * 24 * 60 * 60 * 1000
       );
       weekData.push(<td key={daysInWeek[i]}>{daysInWeek[i]}</td>);
-      for (let j = 0; j < 50; j++) {
+      for (let j = 0; j < 51; j++) {
         const date = new Date(
           weekStartDate.getTime() + j * 7 * 24 * 60 * 60 * 1000
         );
@@ -94,11 +96,26 @@ const Table = () => {
           </thead>
           <tbody>{renderTable()}</tbody>
         </table>
+        <div className="ContributionContainer">
+          <div className="ContributionLevelLine">
+            <h5>Меньше</h5>
+            <div className="square empty"></div>
+            <div className="square level-1"></div>
+            <div className="square level-2"></div>
+            <div className="square level-3"></div>
+            <div className="square level-4"></div>
+            <h5>Больше</h5>
+          </div>
+        </div>
       </div>
-      <div className="DateContibution">
-        <div>{selectedContribution}:contribution</div>
-        <div>{selectedDate}</div>
-      </div>
+      {showDateContribution && (
+        <div className="DateContibution">
+          <div className="TextContibution">
+            {selectedContribution}:contribution
+          </div>
+          <div className="TextContibution">{selectedDate}</div>
+        </div>
+      )}
     </div>
   );
 };
