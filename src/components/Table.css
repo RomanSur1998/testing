@@ -1,0 +1,61 @@
+* {
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+}
+.frame {
+  width: 1120px;
+  height: 279px;
+  background-color: white;
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+
+.empty {
+  background-color: rgba(237, 237, 237, 1);
+}
+
+.level-1 {
+  background-color: rgba(172, 213, 242, 1);
+}
+
+.level-2 {
+  background-color: rgba(127, 168, 201, 1);
+}
+
+.level-3 {
+  background-color: rgba(82, 123, 160, 1);
+}
+
+.level-4 {
+  background-color: rgba(37, 78, 119, 1);
+}
+
+.empty:hover {
+  border: 1px solid grey;
+}
+.level-1:hover {
+  border: 1px solid grey;
+}
+.level-2:hover {
+  border: 1px solid grey;
+}
+.level-3:hover {
+  border: 1px solid grey;
+}
+.level-4:hover {
+  border: 1px solid grey;
+}
